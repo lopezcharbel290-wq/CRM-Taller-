@@ -1,0 +1,141 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Taller Control — sistema de diseño industrial claro.
+ * Colores de estado muy contrastantes, legibles a distancia.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ok: var(--ok);
+  --color-ok-foreground: var(--ok-foreground);
+  --color-ok-soft: var(--ok-soft);
+  --color-alerta: var(--alerta);
+  --color-alerta-foreground: var(--alerta-foreground);
+  --color-alerta-soft: var(--alerta-soft);
+  --color-critico: var(--critico);
+  --color-critico-foreground: var(--critico-foreground);
+  --color-critico-soft: var(--critico-soft);
+  --color-pausa: var(--pausa);
+  --color-pausa-foreground: var(--pausa-foreground);
+  --color-pausa-soft: var(--pausa-soft);
+  --color-refaccion: var(--refaccion);
+  --color-refaccion-foreground: var(--refaccion-foreground);
+  --color-refaccion-soft: var(--refaccion-soft);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --shadow-panel: 0 1px 2px oklch(0.2 0.02 250 / 0.08), 0 8px 24px oklch(0.2 0.02 250 / 0.06);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.972 0.004 250);
+  --foreground: oklch(0.22 0.02 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 255);
+  --primary: oklch(0.36 0.055 250);
+  --primary-foreground: oklch(0.985 0.005 250);
+  --secondary: oklch(0.93 0.008 250);
+  --secondary-foreground: oklch(0.3 0.03 255);
+  --muted: oklch(0.945 0.006 250);
+  --muted-foreground: oklch(0.48 0.02 255);
+  --accent: oklch(0.72 0.17 62);
+  --accent-foreground: oklch(0.2 0.03 60);
+  --destructive: oklch(0.56 0.21 27);
+  --destructive-foreground: oklch(0.985 0.005 250);
+  --border: oklch(0.88 0.008 250);
+  --input: oklch(0.88 0.008 250);
+  --ring: oklch(0.55 0.08 250);
+
+  --ok: oklch(0.58 0.16 148);
+  --ok-foreground: oklch(0.99 0.01 148);
+  --ok-soft: oklch(0.95 0.05 148);
+  --alerta: oklch(0.75 0.16 78);
+  --alerta-foreground: oklch(0.24 0.05 78);
+  --alerta-soft: oklch(0.96 0.06 82);
+  --critico: oklch(0.55 0.22 25);
+  --critico-foreground: oklch(0.99 0.01 25);
+  --critico-soft: oklch(0.95 0.05 25);
+  --pausa: oklch(0.6 0.01 255);
+  --pausa-foreground: oklch(0.99 0 0);
+  --pausa-soft: oklch(0.93 0.005 255);
+  --refaccion: oklch(0.53 0.16 255);
+  --refaccion-foreground: oklch(0.99 0.01 255);
+  --refaccion-soft: oklch(0.95 0.04 255);
+
+  --chart-1: oklch(0.53 0.16 255);
+  --chart-2: oklch(0.58 0.16 148);
+  --chart-3: oklch(0.72 0.17 62);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.45 0.06 250);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+}
+
+@utility cronometro {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
